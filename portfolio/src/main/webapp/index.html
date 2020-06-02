@@ -17,6 +17,15 @@
       <p>Click here to get a random message:</p>
       <button onclick="addRandomGreeting()">Hello</button>
       <div id="greeting-container"></div>
+
+      <form action="/data" method="POST">
+      <p>Write a comment or clear all comments:</p>
+      <input type="text" name="comment-box">
+      <br/><br/>
+      <input type="submit" name="button" value="submit"/>
+      <input type="submit" name="button" value="clear all comments"/>
+      </form>
+
       <h3 id="comments-section"> Comments by people: </h3>
       <ul id="comments-list"></ul>
     </div>
