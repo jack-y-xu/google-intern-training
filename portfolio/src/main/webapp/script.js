@@ -27,8 +27,27 @@ function addRandomGreeting() {
   greetingContainer.innerText = greeting;
 }
 
-async function getIntro() {
-  const response = await fetch('/data');
-  const quote = await response.text();
-  document.getElementById('intro-container').innerText = quote;
+async function start() {
+  getIntro();
+  getComments();
 }
+async function getIntro() {
+  //const response = await fetch('/data');
+  //const quote = await response.text();
+  document.getElementById('intro-container').innerText = "This is Jack Xu's portfolio";
+}
+
+async function getComments() {
+  fetch('/data').then(response => response.json()).then((comments) => {
+    console.log(comments.length);
+    const commentListElement = document.getElementById('comments-list');
+    commentListElement.innerHTML = '';
+    for(commentID=0;commentID<comments.length;commentID++) {
+      var curComment = document.createElement("Li");
+      curComment.innerHTML = comments[commentID];
+      commentListElement.append(curComment);
+    }
+      
+  });
+}
+
