@@ -37,7 +37,8 @@ async function getIntro() {
   document.getElementById('intro-container').innerText = "This is Jack Xu's portfolio";
 }
 
-async function getComments() {
+function getComments() {
+  console.log("FUNCTION IS RUNNING");
   fetch('/data').then(response => response.json()).then((comments) => {
     console.log(comments.length);
     const commentListElement = document.getElementById('comments-list');
@@ -46,8 +47,7 @@ async function getComments() {
       var curComment = document.createElement("Li");
       curComment.innerHTML = comments[commentID];
       commentListElement.append(curComment);
-    }
-      
+    } 
   });
 }
 

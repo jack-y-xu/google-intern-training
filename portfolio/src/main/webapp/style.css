@@ -1,9 +1,9 @@
 /* setting some basic variables for colors referenced */
 :root{
-  --main-blue: darkturquoise;
-  --main-gray: lightgray;
-  --main-red: crimson;
-  --main-white: seashell;
+  --main-blue: rgb(12, 153, 214);
+  --main-gray: rgb(78, 78, 78);
+  --main-red: rgb(247, 36, 78);
+  --main-white: rgb(255, 237, 237);
 }
 
 /* inherit box sizing */
@@ -119,4 +119,16 @@ img{
 
 .link-details:hover {
   transform: translateY(8px);
+}
+
+.comments-section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 80vh;
+  padding: 0 2rem;
+  background: var(--main-red);
 }

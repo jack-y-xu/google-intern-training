@@ -21,7 +21,7 @@
     <li> <a href="#intro-section">About</a></li>
     <li><a href="#photos">Work</a></li>
     <li><a href="#links">Links</a></li>
-    <li><a href="#comment">Comments</a></li>
+    <li><a href="#comments">Comments</a></li>
   </ul>
 </nav>
 
@@ -61,7 +61,7 @@
 </section>
 
 <!-- comments section -->
-<section id="comment form" class ="comments-section">
+<section id="comments" class ="comments-section">
   <div class="comments-section-header">
   <p>Write a comment or clear all comments:</p>
   </div>
@@ -72,7 +72,20 @@
       <input type="submit" name="button" value="clear-all-comments"/>
       </form>
       <h3 id="comments-section"> Comments by people: </h3>
-    <ul id="comments-list"></ul>
+      <script type="text/javascript" > /* for some reason calling this in script.js wasn't working */
+        console.log("FUNCTION IS RUNNING");
+        fetch('/data').then(response => response.json()).then((comments) => {
+          console.log(comments.length);
+          const commentListElement = document.getElementById('comments-list');
+          commentListElement.innerHTML = '';
+          for(commentID=0;commentID<comments.length;commentID++) {
+            var curComment = document.createElement("Li");
+            curComment.innerHTML = comments[commentID];
+            commentListElement.append(curComment);
+          } 
+        });
+      </script>
+      <ul id="comments-list"></ul>
 </section>
 
 <!-- old code below
@@ -94,8 +107,6 @@
       <p>Click here to get a random message:</p>
       <button onclick="addRandomGreeting()">Hello</button>
       <div id="greeting-container"></div>
-      
-      
     </div>
   </body>
 </html>

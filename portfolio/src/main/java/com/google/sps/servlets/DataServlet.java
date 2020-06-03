@@ -25,10 +25,10 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
   private ArrayList<String> comments = new ArrayList<String>();
-  private static final String BUTTON_PARAMTER = "button";
+  private static final String BUTTON_PARAMETER = "button";
   private static final String COMMENT_BOX_PARAMETER = "comment-box";
-  private static final STring CLEAR_BUTTON_VALUE = "clear-all-comments";
-  private static final STring SUBMIT_BUTTON_VALUE = "submit";
+  private static final String CLEAR_BUTTON_VALUE = "clear-all-comments";
+  private static final String SUBMIT_BUTTON_VALUE = "submit";
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
