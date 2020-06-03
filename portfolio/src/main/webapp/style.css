@@ -41,7 +41,62 @@ html{
   }
 }
 
+/* nav bar  :)!!!!*/
+.nav {
+  display:flex;
+  justify-content: flex-end;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100;
+  background: var(main-red);
+}
+
+.nav-list{
+  display:flex;
+}
+
+.nav-list a:hover{
+  background: var(main-blue);
+}
+
+/* intro section */
+.intro-section{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 
+/*Projects section*/
+.photos-section{
+  text-align:center;
+  background:var(main-blue);
+}
 
+/* some empty properties for experimenting*/
+.photos-section-header{
 
+}
+
+@media () {
+  .photos-section-header{
+    
+  }
+}
+
+-projects-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px));
+  grid-gap: 5em;
+}
+
+@media () {
+  .photos-section{
+
+  }
+  .photos-grid{
+  
+  }
+}
