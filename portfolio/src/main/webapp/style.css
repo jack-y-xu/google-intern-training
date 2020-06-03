@@ -7,3 +7,25 @@
 #greeting-container {
   margin-top: 20px;
 }
+
+:root{
+  main-white: seashell;
+  main-red: crimson;
+  main-blue: darkturquoise;
+  main-gray: lightgray;
+}
+
+*{
+  margin:0;
+  padding:0;
+}
+
+*,*::before,*::after{
+  box-sizing:inherit;
+}
+
+html{
+  box-sizing:border-box;
+  font-size:65%;
+  scroll-behavior:smooth;
+}
