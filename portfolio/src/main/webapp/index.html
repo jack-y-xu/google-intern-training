@@ -10,6 +10,7 @@
   href="https://fonts.googleapis.com/css?family=Poppins:200i,300,400&display=swap"
   rel="stylesheet"
 />
+
 <link
   href="https://fonts.googleapis.com/css?family=Raleway:700&display=swap"
   rel="stylesheet"
@@ -32,12 +33,12 @@
   </ul>
 </nav>
 
-
 <section id="intro-section" class="intro-section">
   <title>Hello world!</title>
   <h1>My name is Jack Xu</h1>
 </section>
 
+<!photos section>
 <section id="photos" class="photos-section">
   <h2 class="photos-section-header">Here are some photos about me </h2>
 
@@ -72,6 +73,45 @@
 </section>
 
 
+<!personal links>
+<section id="links" class="links-section">
+  <div class="link-section-header">
+    <h2> Some links </h2>
+  </div>
+  <div class="personal-links">
+    <a
+      href="https://jackxu.org"
+      target="_blank"
+      class="link-details"
+    ><i class="link-text"></i>Personal site
+    </a>
+    <a
+      href="https://linkedin.com/in/jackyuhengxu"
+      target="_blank"
+      class="link-details"
+    ><i class="link-text"></i>Linkedin
+    </a>
+  </div>
+</section>
+<!end personal links>
+
+<!comments section>
+</section id="comment form" class ="comments-section">
+  <div class="comments-section-header">
+  <p>Write a comment or clear all comments:</p>
+  </div>
+    <form action="/data" method="POST">
+      <input type="text" name="comment-box">
+      <br/><br/>
+      <input type="submit" name="button" value="submit"/>
+      <input type="submit" name="button" value="clear all comments"/>
+      </form>
+      <h3 id="comments-section"> Comments by people: </h3>
+    <ul id="comments-list"></ul>
+
+</section>
+<!end comments section>
+
 <html style="background-color:lightgray;">
   <head>
     <meta charset="UTF-8">
@@ -90,17 +130,8 @@
       <p>Click here to get a random message:</p>
       <button onclick="addRandomGreeting()">Hello</button>
       <div id="greeting-container"></div>
-
-      <form action="/data" method="POST">
-      <p>Write a comment or clear all comments:</p>
-      <input type="text" name="comment-box">
-      <br/><br/>
-      <input type="submit" name="button" value="submit"/>
-      <input type="submit" name="button" value="clear all comments"/>
-      </form>
-
-      <h3 id="comments-section"> Comments by people: </h3>
-      <ul id="comments-list"></ul>
+      
+      
     </div>
   </body>
 </html>
