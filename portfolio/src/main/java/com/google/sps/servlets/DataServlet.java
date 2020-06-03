@@ -25,6 +25,11 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
   private ArrayList<String> comments = new ArrayList<String>();
+  private static final String BUTTON_PARAMTER = "button";
+  private static final String COMMENT_BOX_PARAMETER = "comment-box";
+  private static final STring CLEAR_BUTTON_VALUE = "clear-all-comments";
+  private static final STring SUBMIT_BUTTON_VALUE = "submit";
+
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     String json = convertToJson(comments);
@@ -40,16 +45,16 @@ public class DataServlet extends HttpServlet {
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    String choice = request.getParameter("button");
-    if (choice.equals("submit")) {
-      String content = request.getParameter("comment-box");
-      if (content.length()>0) comments.add(content);
+    String choice = request.getParameter(BUTTON_PARAMETER);
+    if (choice.equals(SUBMIT_BUTTON_VALUE)) {
+      String content = request.getParameter(COMMENT_BOX_PARAMETER);
+      if (content.length() > 0) comments.add(content);
       else {
         response.setContentType("text/html");
         response.getWriter().println("Please enter a non-empty comment.");
         return;
       }
-    } else if (choice.equals("clear all comments")) {
+    } else if (choice.equals(CLEAR_BUTTON_VALUE)) {
       comments.clear();
     }
     response.sendRedirect("/index.html");

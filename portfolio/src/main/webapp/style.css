@@ -1,25 +1,9 @@
-#content {
-  margin-left: auto;
-  margin-right: auto;
-  width: 650px;
-}
-
-#greeting-container {
-  margin-top: 20px;
-}
-
 /* setting some basic variables for colors referenced */
 :root{
-  main-white: seashell;
-  main-red: crimson;
-  main-blue: darkturquoise;
-  main-gray: lightgray;
-}
-
-/* reset the margins */
-*{
-  margin:0;
-  padding:0;
+  --main-blue: darkturquoise;
+  --main-gray: lightgray;
+  --main-red: crimson;
+  --main-white: seashell;
 }
 
 /* inherit box sizing */
@@ -41,7 +25,25 @@ html{
   }
 }
 
-/* nav bar  :)!!!!*/
+/* set main font  */
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem; /* 18px */
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--main-white);
+}
+
+a{
+  color:var(--main-white);
+}
+
+img{
+  display:block;
+  width:100%;
+}
+
+/* nav bar */
 .nav {
   display:flex;
   justify-content: flex-end;
@@ -56,8 +58,14 @@ html{
   display:flex;
 }
 
+.nav-list a {
+  display: block;
+  font-size: 2rem;
+  padding: 2rem;
+}
+
 .nav-list a:hover{
-  background: var(main-blue);
+  background: var(--main-blue);
 }
 
 /* intro section */
@@ -66,37 +74,49 @@ html{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height:100vh; /*this line is crucial in getting the section to come after nav bar*/
+  background-image:linear-gradient(90deg,gray 0%,black 70%)
 }
 
-
-/*Projects section*/
+/* section*/
 .photos-section{
   text-align:center;
-  background:var(main-blue);
+  background:var(--main-blue);
 }
 
-/* some empty properties for experimenting*/
-.photos-section-header{
-
+.photos-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 4rem;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  margin-bottom: 6rem;
 }
 
-@media () {
-  .photos-section-header{
-    
-  }
+.photo-file {
+  height: calc(100% - 6.8rem);
+  width: 100%;
+  object-fit: cover;
 }
 
--projects-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px));
-  grid-gap: 5em;
+.links-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 80vh;
+  padding: 0 2rem;
+  background: var(--main-gray);
 }
 
-@media () {
-  .photos-section{
+.link-details {
+  font-size: 2rem;
+  transition: transform 0.3s ease-out;
+}
 
-  }
-  .photos-grid{
-  
-  }
+.link-details:hover {
+  transform: translateY(8px);
 }
