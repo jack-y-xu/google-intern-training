@@ -8,6 +8,7 @@
   margin-top: 20px;
 }
 
+/* setting some basic variables for colors referenced */
 :root{
   main-white: seashell;
   main-red: crimson;
@@ -15,11 +16,13 @@
   main-gray: lightgray;
 }
 
+/* reset the margins */
 *{
   margin:0;
   padding:0;
 }
 
+/* some basic settings */
 *,*::before,*::after{
   box-sizing:inherit;
 }
@@ -29,3 +32,24 @@ html{
   font-size:65%;
   scroll-behavior:smooth;
 }
+
+/* regulate the media size & font size with em so everything is relative */
+@media (max-width: 75em) {
+  html {
+    font-size: 60%;
+  }
+}
+
+@media (max-width: 61.25em) {
+  html {
+    font-size: 58%;
+  }
+}
+
+@media (max-width: 29m) {
+  html {
+    font-size: 55%;
+  }
+}
+
+

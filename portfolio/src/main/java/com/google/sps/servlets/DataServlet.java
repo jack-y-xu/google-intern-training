@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/** Servlet that returns some example content. TODO: modify this file to handle comments data */
+/** Servlet that handles comments from the user and returns a list of current comments **/
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
   private ArrayList<String> comments = new ArrayList<String>();
@@ -50,7 +50,7 @@ public class DataServlet extends HttpServlet {
         return;
       }
     } else if (choice.equals("clear all comments")) {
-      comments = new ArrayList<String>();
+      comments.clear();
     }
     response.sendRedirect("/index.html");
   }
