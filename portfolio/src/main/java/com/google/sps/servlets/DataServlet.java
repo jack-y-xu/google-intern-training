@@ -29,15 +29,19 @@ public class DataServlet extends HttpServlet {
   private static final String COMMENT_BOX_PARAMETER = "comment-box";
   private static final String CLEAR_BUTTON_VALUE = "clear-all-comments";
   private static final String SUBMIT_BUTTON_VALUE = "submit";
-  private static final String QUANTITY_VALUE = "quantity";
+  private static final String COMMENTS_DISPLAYED_NUMBER_PARAMETER = "comments-displayed";
+  private int number_of_comments_displayed = -1;
   private DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     Query query = new Query("Comment").addSort("timestamp",SortDirection.DESCENDING);
     PreparedQuery results = datastore.prepare(query);
     ArrayList<String> comments = new ArrayList<String>();
-    String choice = request.getParameter(BUTTON_PARAMETER);
+    int comment_count = 0;
     for(Entity entity : results.asIterable()) {
+      if (comment_count == number_of_comments_displayed) break;
+      comment_count++;
       comments.add((String)entity.getProperty("content"));
     }
     String json = convertToJson(comments);
@@ -74,6 +78,7 @@ public class DataServlet extends HttpServlet {
           datastore.delete(result.getKey());      
         } 
     }
+    number_of_comments_displayed = Integer.parseInt(request.getParameter(COMMENTS_DISPLAYED_NUMBER_PARAMETER));
     response.sendRedirect("/index.html");
   }
 }

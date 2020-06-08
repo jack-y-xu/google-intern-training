@@ -14,11 +14,9 @@
 
 // getComments function fetches the comments from /data and appends them to a list
 async function getComments() {
-  console.log("FUNCTION IS RUNNING");
   fetch('/data').then(response => response.json()).then((comments) => {
-    console.log("FUNCTION IS RUNNING");
     const commentListElement = document.getElementById('comments-list');
-    commentListElement.innerHTML = '';
+    commentListElement.innerHTML = "";
     for(commentID=0;commentID<comments.length;commentID++) {
       var curComment = document.createElement("Li");
       curComment.innerHTML = comments[commentID];
