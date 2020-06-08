@@ -37,7 +37,7 @@ public class DataServlet extends HttpServlet {
     PreparedQuery results = datastore.prepare(query);
     ArrayList<String> comments = new ArrayList<String>();
     String choice = request.getParameter(BUTTON_PARAMETER);
-    for(Entity entity:results.asIterable()) {
+    for(Entity entity : results.asIterable()) {
       comments.add((String)entity.getProperty("content"));
     }
     String json = convertToJson(comments);
