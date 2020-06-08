@@ -1,20 +1,17 @@
 <!DOCTYPE html>
-<!--import fonts-->
-<!-- <html>
-<body> -->
 
 <link href="style.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="script.js"></script>
-
 <link
   href="https://fonts.googleapis.com/css?family=Poppins:200i,300,400&display=swap"
   rel="stylesheet"
 />
-
 <link
   href="https://fonts.googleapis.com/css?family=Raleway:700&display=swap"
   rel="stylesheet"
 />
+
+<body onload="getComments()">
 
 <!-- navigation bar -->
 <nav id="navbar" class="nav">
@@ -37,13 +34,17 @@
 <section id="photos" class="photos-section">
   <h2 class="photos-section-header">Here are some photos about me </h2>
   <div class="photos-grid">
-    <a class="photo photo-tile">
-      <img class="photo-file" src="/images/headshot.jpeg" alt="photo" />
-      <p class="photo-tile"> headshot taken at Duke</p>
+    <a target = "_blank" class="photo photo-tile">
+      <img class="photo-image" src="/images/headshot.jpeg" alt="photo"/>
+      <p class="photo-tile">
+        headshot at Duke
+      </p>
     </a>
-    <a href="https://openmind.press" target="_blank"class="photo photo-tile">
-      <img class="photo-file" src="/images/openmind.jpeg" alt="photo"/>
-      <p class="photo-title">Openmind project</p>
+    <a href="https://openmind.press" target="_blank" class="photo photo-tile">
+      <img class="photo-image" src="/images/openmind.jpeg" alt="photo"/>
+      <p class="photo-title">
+        Openmind project
+      </p>
     </a>
   </div>
 </section>
@@ -62,61 +63,17 @@
 </section>
 
 <!-- comments section -->
-<section href="script.js" id="comments" class ="comments-section">
+<section href="script.js" id="comments" class ="comments-section" onload="testFunction()">
   <div class="comments-section-header">
   <h2>Write a comment or clear all comments:</h2>
   </div>
-    <form action="/data" method="POST">
-      <input type="text" name="comment-box">
-      <input type="submit" name="button" value="submit"/>
-      <input type="submit" name="button" value="clear-all-comments"/>
-    </form>
-    <br/><br/>
-    <label for="quantity">Choose number of comments to display</label>
-    <input type="number" id="quantity" name="quantity" value="5" min="1" onchange="javascript:getComments2();">
-    <br/>
-
-    <h3 src="script.js" id="comments-section" onload="javascript:getComments2();"> Comments by people: </h3>
-      <!--TODO: get this working in js file-->
-      <!-- <script type="text/javascript" > /* for some reason calling this in script.js wasn't working */
-        
-        console.log("FUNCTION IS RUNNING");
-        fetch('/data').then(response => response.json()).then((comments) => {
-          console.log(comments.length);
-          const commentListElement = document.getElementById('comments-list');
-          commentListElement.innerHTML = '';
-          for(commentID=0;commentID<comments.length;commentID++) {
-            var curComment = document.createElement("Li");
-            curComment.innerHTML = comments[commentID];
-            commentListElement.append(curComment);
-          } 
-        });
-      </script> -->
-      <ul id="comments-list"></ul>
+  <form action="/data" method="POST">
+    <input type="text" name="comment-box">
+    <br></br>
+    <input type="submit" name="button" value="submit"/>
+    <input type="submit" name="button" value="clear-all-comments"/>
+  </form>
+  <h3 src="script.js" id="comments-section" onload="getComments2()"> Comments by people: </h3>
+  <ul id="comments-list"></ul>
 </section>
-
-<!-- old code below
-<html style="background-color:lightgray;">
-  <head>
-    <meta charset="UTF-8">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-  </head>
-  <body onload="start()">
-    <div id="content">
-      <img src="./images/headshot.jpeg" alt="Jack Xu" class="center">
-      <h1 id="intro-container"> </h1>
-      <p>This is my portfolio.</p>
-      <p>I am a rising sophomore at Duke University studying computer science and mathematics!</p>
-      <a href="https://linkedin.com/in/jackyuhengxu">Linkedin</a>
-      <a href="https://jackxu.org">Personal site</a>
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
-    </div>
-  </body>
-</html>
--->
-<!-- </body>
-</html> -->
+</body>
