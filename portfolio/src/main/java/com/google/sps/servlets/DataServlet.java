@@ -29,13 +29,17 @@ public class DataServlet extends HttpServlet {
   private static final String COMMENT_BOX_PARAMETER = "comment-box";
   private static final String CLEAR_BUTTON_VALUE = "clear-all-comments";
   private static final String SUBMIT_BUTTON_VALUE = "submit";
+  private static final String QUANTITY_VALUE = "quantity";
   private DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     Query query = new Query("Comment").addSort("timestamp",SortDirection.DESCENDING);
     PreparedQuery results = datastore.prepare(query);
     ArrayList<String> comments = new ArrayList<String>();
+    int choice = Integer.parseInt(request.getParameter(BUTTON_PARAMETER));
+    int count = 0;
     for(Entity entity:results.asIterable()) {
+      if (count++>=count) break;
       comments.add((String)entity.getProperty("content"));
     }
     String json = convertToJson(comments);

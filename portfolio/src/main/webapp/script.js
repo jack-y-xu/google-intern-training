@@ -15,29 +15,34 @@
 /**
  * Adds a random greeting to the page.
  */
-function addRandomGreeting() {
-  const greetings =
-      ['The bartender says: "We don\'t serve faster than light particles here. A tachyon walks into a bar.', 'Why couldn\'t the bike stand on its own legs? It is two tired', 'cats are great'];
 
-  // Pick a random greeting.
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
+console.log("BASIC JAVASCRIPT IS LOADED");
 
-  // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = greeting;
-}
+// function addRandomGreeting() {
+//   const greetings =
+//       ['The bartender says: "We don\'t serve faster than light particles here. A tachyon walks into a bar.', 'Why couldn\'t the bike stand on its own legs? It is two tired', 'cats are great'];
 
-async function start() {
-  getIntro();
-  getComments();
-}
-async function getIntro() {
-  //const response = await fetch('/data');
-  //const quote = await response.text();
-  document.getElementById('intro-container').innerText = "This is Jack Xu's portfolio";
-}
+//   // Pick a random greeting.
+//   const greeting = greetings[Math.floor(Math.random() * greetings.length)];
 
-function getComments() {
+//   // Add it to the page.
+//   const greetingContainer = document.getElementById('greeting-container');
+//   greetingContainer.innerText = greeting;
+// }
+
+// async function start() {
+//   getIntro();
+//   getComments();
+// }
+
+// async function getIntro() {
+//   //const response = await fetch('/data');
+//   //const quote = await response.text();
+//   document.getElementById('intro-container').innerText = "This is Jack Xu's portfolio";
+// }
+
+
+async function getComments() {
   console.log("FUNCTION IS RUNNING");
   fetch('/data').then(response => response.json()).then((comments) => {
     console.log(comments.length);
@@ -51,3 +56,5 @@ function getComments() {
   });
 }
 
+
+console.log("FUNCTION IS COMPILED IS LOADED");
