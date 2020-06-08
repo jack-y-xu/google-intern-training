@@ -42,10 +42,24 @@ console.log("BASIC JAVASCRIPT IS LOADED");
 // }
 
 
+async function getComments2() {
+  console.log("FUNCTION2 IS RUNNING");
+  const response = await fetch('/data');
+  const comments = await response.json();
+
+  const commentListElement = document.getElementById('comments-list');
+  commentListElement.innerHTML = '';
+  for(commentID=0;commentID<comments.length;commentID++) {
+    var curComment = document.createElement("Li");
+    curComment.innerHTML = comments[commentID];
+    commentListElement.append(curComment);
+  }
+}
+
 async function getComments() {
   console.log("FUNCTION IS RUNNING");
   fetch('/data').then(response => response.json()).then((comments) => {
-    console.log(comments.length);
+    console.log("FUNCTION IS RUNNING");
     const commentListElement = document.getElementById('comments-list');
     commentListElement.innerHTML = '';
     for(commentID=0;commentID<comments.length;commentID++) {
@@ -55,6 +69,3 @@ async function getComments() {
     } 
   });
 }
-
-
-console.log("FUNCTION IS COMPILED IS LOADED");

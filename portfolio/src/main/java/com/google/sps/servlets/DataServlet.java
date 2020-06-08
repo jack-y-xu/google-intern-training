@@ -36,8 +36,8 @@ public class DataServlet extends HttpServlet {
     Query query = new Query("Comment").addSort("timestamp",SortDirection.DESCENDING);
     PreparedQuery results = datastore.prepare(query);
     ArrayList<String> comments = new ArrayList<String>();
-    int choice = Integer.parseInt(request.getParameter(BUTTON_PARAMETER));
-    int count = 0;
+    int choice = request.getParameter(BUTTON_PARAMETER);
+    int count = Integer.parseInt(request.getParameter(QUANTITY_VALUE));
     for(Entity entity:results.asIterable()) {
       if (count++>=count) break;
       comments.add((String)entity.getProperty("content"));
