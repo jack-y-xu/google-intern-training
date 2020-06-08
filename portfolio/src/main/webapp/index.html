@@ -1,24 +1,79 @@
 <!DOCTYPE html>
-<html style="background-color:lightgray;">
-  <head>
-    <meta charset="UTF-8">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-  </head>
-  <body onload="start()">
-    <div id="content">
-      <img src="./images/headshot.jpeg" alt="Jack Xu" class="center">
-      <h1 id="intro-container"> </h1>
-      <p>This is my portfolio.</p>
-      <p>I am a rising sophomore at Duke University studying computer science and mathematics!</p>
-      <a href="https://linkedin.com/in/jackyuhengxu">Linkedin</a>
-      <a href="https://jackxu.org">Personal site</a>
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
-      <h3 id="comments-section"> Comments by people: </h3>
-      <ul id="comments-list"></ul>
-    </div>
-  </body>
-</html>
+
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="script.js"></script>
+<link
+  href="https://fonts.googleapis.com/css?family=Poppins:200i,300,400&display=swap"
+  rel="stylesheet"
+/>
+<link
+  href="https://fonts.googleapis.com/css?family=Raleway:700&display=swap"
+  rel="stylesheet"
+/>
+
+<body onload="getComments()">
+
+<!-- navigation bar -->
+<nav id="navbar" class="nav">
+  <ul class="nav-list" style="list-style-type:none;">
+    <li> <a href="#intro-section">About</a></li>
+    <li><a href="#photos">Work</a></li>
+    <li><a href="#links">Links</a></li>
+    <li><a href="#comments">Comments</a></li>
+  </ul>
+</nav>
+
+<!-- about me introduction section -->
+<section id="intro-section" class="intro-section">
+  <title>Hello world!</title>
+  <h1>My name is Jack Xu</h1>
+  <p>I am a rising sophomore at Duke University studying computer science and mathematics!</p>
+</section>
+
+<!--photos section-->
+<section id="photos" class="photos-section">
+  <h2 class="photos-section-header">Here are some photos about me </h2>
+  <div class="photos-grid">
+    <a target = "_blank" class="photo photo-tile">
+      <img class="photo-image" src="/images/headshot.jpeg" alt="photo"/>
+      <p class="photo-tile">
+        headshot at Duke
+      </p>
+    </a>
+    <a href="https://openmind.press" target="_blank" class="photo photo-tile">
+      <img class="photo-image" src="/images/openmind.jpeg" alt="photo"/>
+      <p class="photo-title">
+        Openmind project
+      </p>
+    </a>
+  </div>
+</section>
+
+<!-- personal links section -->
+<section id="links" class="links-section">
+  <div class="link-section-header"> <h2> Some links </h2> </div>
+  <div class="personal-links">
+    <a href="https://jackxu.org" target="_blank" class="link-details">
+    <i class="link-text"></i>Personal site
+    </a>
+    <a href="https://linkedin.com/in/jackyuhengxu" target="_blank" class="link-details">
+    <i class="link-text"></i>Linkedin
+    </a>
+  </div>
+</section>
+
+<!-- comments section -->
+<section id="comments" class ="comments-section">
+  <div class="comments-section-header">
+  <h2>Write a comment or clear all comments:</h2>
+  </div>
+  <form action="/data" method="POST">
+    <input type="text" name="comment-box">
+    <br></br>
+    <input type="submit" name="button" value="submit"/>
+    <input type="submit" name="button" value="clear-all-comments"/>
+  </form>
+  <h3 id="comments-section"> Comments by people: </h3>
+  <ul id="comments-list"></ul>
+</section>
+</body>

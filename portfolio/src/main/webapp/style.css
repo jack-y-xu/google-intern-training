@@ -1,9 +1,219 @@
-#content {
-  margin-left: auto;
-  margin-right: auto;
-  width: 650px;
+/* setting some basic variables for colors referenced */
+:root{
+  --main-blue: rgb(0, 131, 187);
+  --main-gray: rgb(78, 78, 78);
+  --main-red: rgb(247, 36, 78);
+  --main-white: rgb(255, 237, 237);
 }
 
-#greeting-container {
-  margin-top: 20px;
+*{
+  margin: 0;
+  padding: 0;
+}
+
+/* inherit box sizing */
+*,*::before,*::after{
+  box-sizing:inherit;
+}
+
+/* change html scroll behavior and font size  */
+html{
+  box-sizing:border-box;
+  font-size:65%;
+  scroll-behavior:smooth;
+}
+
+/* regulate the media size & font size with em so everything is relative.*/  
+@media (max-width: 75em) {
+  html {
+    font-size: 60%;
+  }
+}
+@media (max-width: 61em) {
+  html {
+    font-size: 55%;
+  }
+}
+@media (max-width: 30em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+/* set main font  */
+body {
+  color: var(--main-white);
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem; /* 18px */
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+h1, h2 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  text-align: center;
+}
+
+h1 {
+  font-size: 6rem;
+}
+
+h2 {
+  font-size: 4.2rem;
+}
+
+ul {
+  list-style: none;
+}
+
+a{
+  color:var(--main-white);
+  text-decoration:none;
+}
+
+img{
+  display: block;
+  width: 100%;
+}
+
+/* nav bar */
+.nav {
+  background: var(--main-red);
+  display:flex;
+  justify-content: flex-end;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.nav-list{
+  display:flex;
+  margin-right: 2rem;
+}
+
+.nav-list a {
+  display: block;
+  font-size: 2rem;
+  padding: 2rem;
+}
+
+.nav-list a:hover{
+  background: var(--main-blue);
+}
+
+/* intro section */
+.intro-section{
+  align-items: center;
+  background-image:linear-gradient(60deg,rgb(99, 99, 99) 0%,rgb(17, 17, 17) 80%);
+  display:flex;
+  flex-direction: column;
+  height:100vh; /*this line is crucial in getting the section to come after nav bar*/
+  justify-content: center;
+  width: 100%;
+}
+
+/* section*/
+.photos-section{
+  background:var(--main-blue);
+  background-image:linear-gradient(240deg,rgb(28, 90, 145) 0%,rgb(13, 85, 255) 80%);
+  padding: 10rem 2rem;
+  text-align: center;
+}
+
+.photos{
+  background:var(--main-blue);
+  background-image:linear-gradient(240deg,rgb(1, 137, 255) 0%,rgb(13, 85, 255) 80%);
+  border-radius: 2px;
+  box-shadow: 1px 1px 2px rbga(0,0,0,0.5);
+}
+
+.photo-image {
+  height: calc(100%-6.8rem);
+  object-fit: cover;
+  width: 100%;
+}
+
+.photo-title {
+  font-size: 2rem;
+  padding: 2rem 0.5rem;
+}
+
+.photos-section-header{
+  margin: 0 auto 6rem auto;
+  max-width: 1000px;
+}
+
+@media (max-width: 30rem) {
+  .photos-grid {
+    grid-template-columns: 1fr;
+  }
+  .photos-section {
+    padding: 6rem 1rem;
+  }
+  .photos-section-header {
+    font-size: 4rem;
+  }
+}
+
+.photos-grid{
+  display: grid;
+  grid-gap: 4rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  margin: 0 auto;
+  margin-bottom:30rem;
+  max-width: 1280px;
+  width: 100%;
+}
+
+.photo-title {
+  font-size: 2rem;
+  padding: 2rem 0.5rem;
+}
+
+/* Links section */
+.links-section {
+  align-items: center;
+  background: var(--main-gray);
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  justify-content: center;
+  padding: 0 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+.personal-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin:3rem;
+  margin-top: 4rem;
+  max-width: 980px;
+  width: 100%;
+}
+
+.link-details {
+  font-size: 2rem;
+  margin:3rem;
+  transition: transform 0.3s ease-out;
+}
+
+.link-details:hover {
+  transform: translateY(8px);
+}
+
+/* Comments section */
+.comments-section{
+  align-items: center;
+  background: var(--main-red);
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  justify-content: center;
+  padding: 0 2rem;
+  text-align: center;
+  width: 100%;
 }
