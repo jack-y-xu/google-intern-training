@@ -40,7 +40,7 @@ public class DataServlet extends HttpServlet {
     ArrayList<String> comments = new ArrayList<String>();
     int comment_count = 0;
     for(Entity entity : results.asIterable()) {
-      if (comment_count==number_of_comments_displayed) break;
+      if (comment_count == number_of_comments_displayed) break;
       comment_count++;
       comments.add((String)entity.getProperty("content"));
     }
