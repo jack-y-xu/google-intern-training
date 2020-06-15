@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 
-<link href="style.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="script.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGmdEWVZ4GYEYOBHOyX3QNMiPLCkhHb4g"></script>
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="script.js"></script>
+<link rel="stylesheet" href="style.css">
 <link
   href="https://fonts.googleapis.com/css?family=Poppins:200i,300,400&display=swap"
   rel="stylesheet"
@@ -11,7 +13,7 @@
   rel="stylesheet"
 />
 
-<body onload="getComments()">
+<body onload="setup()"></body>
 
 <!-- navigation bar -->
 <nav id="navbar" class="nav">
@@ -20,6 +22,8 @@
     <li><a href="#photos">Work</a></li>
     <li><a href="#links">Links</a></li>
     <li><a href="#comments">Comments</a></li>
+    <li><a href="#charts">Charts</a></li>
+    <li><a href="#maps">Maps</a></li>
   </ul>
 </nav>
 
@@ -32,7 +36,7 @@
 
 <!--photos section-->
 <section id="photos" class="photos-section">
-  <h2 class="photos-section-header">Here are some photos about me </h2>
+  <h2 class="photos-section-header">Here are some photos</h2>
   <div class="photos-grid">
     <a target = "_blank" class="photo photo-tile">
       <img class="photo-image" src="/images/headshot.jpeg" alt="photo"/>
@@ -63,7 +67,7 @@
 </section>
 
 <!-- comments section -->
-<section id="comments" class ="comments-section">
+<section id="comments" class="comments-section">
   <div class="comments-section-header">
   <h2>Write a comment or clear all comments:</h2>
   </div>
@@ -82,3 +86,18 @@
   <ul id="comments-list"></ul>
 </section>
 </body>
+
+<!-- charts section -->
+<section id="charts" class="charts-section">
+  <h2> Bigfoot sightings </h2>
+  <div id="chart-container"></div>
+</section>
+
+<!-- maps section -->
+<section id="maps" class="maps-section">
+  <h2> This shows the location of Stan the T-Rex </h2>
+  <div></div>
+  <body>
+    <div id="map"></div>
+  </body>
+</section>
