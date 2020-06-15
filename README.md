@@ -1,1 +1,1 @@
-This repo contains Jack Xu's portfolio and STEP projects.
+This repo contains Jack Xu's STEP projects.
