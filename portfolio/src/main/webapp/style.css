@@ -63,10 +63,6 @@ h2 {
   font-size: 4.2rem;
 }
 
-ul {
-  list-style: none;
-}
-
 a{
   color:var(--main-white);
   text-decoration:none;
@@ -116,8 +112,7 @@ img{
 
 /* section*/
 .photos-section{
-  background:var(--main-blue);
-  background-image:linear-gradient(240deg,rgb(28, 90, 145) 0%,rgb(13, 85, 255) 80%);
+  background-color: firebrick;
   padding: 10rem 2rem;
   text-align: center;
 }
@@ -208,7 +203,7 @@ img{
 /* Comments section */
 .comments-section{
   align-items: center;
-  background: var(--main-red);
+  background-color: var(--main-red);
   display: flex;
   flex-direction: column;
   height: 80vh;
@@ -216,4 +211,35 @@ img{
   padding: 0 2rem;
   text-align: center;
   width: 100%;
+}
+
+/* Charts section */
+.charts-section {
+  align-items: center;
+  background-color: slateblue;
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  justify-content: center;
+  padding: 0 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+/* Map section */
+.maps-section {
+  align-items: center;
+  background-color: darkcyan;
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  justify-content: center;
+  padding: 0 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+#map{
+  height: 300px;
+  width: 300px;
 }

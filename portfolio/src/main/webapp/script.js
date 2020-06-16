@@ -12,6 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+google.charts.load('current',{'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// setup function displays JS content on the page
+function setup() {
+  createMap();
+  getComments();
+}
+
 // getComments function fetches the comments from /data and appends them to a list
 async function getComments() {
   fetch('/data').then(response => response.json()).then((comments) => {
@@ -22,5 +31,40 @@ async function getComments() {
       curComment.innerHTML = comments[commentID];
       commentListElement.append(curComment);
     } 
+  });
+}
+
+// Fetches bigfoot sightings data and uses it to create a chart. 
+function drawChart() {
+  fetch('/bigfoot-data').then(response => response.json())
+  .then((bigfootSightings) => {
+    const data = new google.visualization.DataTable();
+    data.addColumn('string', 'Year');
+    data.addColumn('number', 'Sightings');
+    Object.keys(bigfootSightings).forEach((year) => {
+      data.addRow([year, bigfootSightings[year]]);
+    });
+
+    const options = {
+      'title': 'Bigfoot Sightings',
+      'width':600,
+      'height':500
+    };
+    
+    const chart = new google.visualization.LineChart(
+        document.getElementById('chart-container'));
+    chart.draw(data, options);
+  });
+}
+
+// createMap function adds a Google Map to the page
+function createMap() {
+  const map = new google.maps.Map(
+      document.getElementById('map'),
+      {center: {lat: 37.422, lng: -122.084}, zoom: 16});
+  const trexMarker = new google.maps.Marker({
+    position: {lat: 37.421903, lng: -122.084674},
+    map: map,
+    title: 'Stan the T-Rex'
   });
 }
