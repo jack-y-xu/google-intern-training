@@ -23,8 +23,9 @@ public final class FindMeetingQuery {
     Collection<String> optionalAttendees = request.getOptionalAttendees();
     Integer meetingDuration = (int) request.getDuration();
 
-    //if mandatory attendees exist, return optimal schedule if can include optionals. Otherwise return just the schedule for optional attendees.
-    if (mandatoryAttendees.size()>0) {
+    //if mandatory attendees exist, return optimal schedule if can include optionals. 
+    //Otherwise return just the schedule for optional attendees.
+    if (mandatoryAttendees.size() > 0) {
       Collection<String> allAttendees = new HashSet<String>();
       allAttendees.addAll(mandatoryAttendees);
       allAttendees.addAll(optionalAttendees);
@@ -35,7 +36,9 @@ public final class FindMeetingQuery {
     return subgroupQuery(events,optionalAttendees,meetingDuration);
   }
 
-  private Collection<TimeRange> subgroupQuery(Collection<Event> events, Collection<String> meetingAttendees, Integer meetingDuration) {
+  private Collection<TimeRange> subgroupQuery(Collection<Event> events, 
+                                              Collection<String> meetingAttendees, 
+                                              Integer meetingDuration) {
     Map<Integer,Integer> eventMarkers = new TreeMap<Integer,Integer>();
     ArrayList<TimeRange> availableTimes = new ArrayList<TimeRange>();
     int busyScore = 0;
@@ -58,7 +61,8 @@ public final class FindMeetingQuery {
       }
     }
 
-    //Loop over events, and if attendee present in meeting, add the start and end interval to array list
+    //Loop over events, and if attendee present in meeting, add the start and end
+    // interval to array list
     //We will then sort this array to keep track of start and ending points
     //For start, it will add one to the busyness score, for end, it will subtract one
     //We can schedule meetings only when the busyness score is 0
